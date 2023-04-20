@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { SearchbarHeader, SearchForm , SearchFormButton, SearchFormLabel, SearchFormInput } from './Searchbar.styled';
 import { toast } from 'react-toastify';
+import { ImSearch } from 'react-icons/im';
 
 class Searchbar extends Component {
   state = {
@@ -28,7 +29,9 @@ class Searchbar extends Component {
       <SearchbarHeader>
         <SearchForm className="form" onSubmit={this.handleSubmit}>
           <SearchFormButton type="submit" className="button">
-            <SearchFormLabel className="button-label">Search</SearchFormLabel>
+            <SearchFormLabel className="button-label">
+              <ImSearch style={{ marginRight: 8 }} />
+            </SearchFormLabel>
           </SearchFormButton>
 
           <SearchFormInput

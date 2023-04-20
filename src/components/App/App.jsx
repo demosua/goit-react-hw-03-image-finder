@@ -7,6 +7,8 @@ import Modal from '../Modal'
 // import { nanoid } from 'nanoid';
 import { Container } from './App.styled';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 class App extends Component {
   state = {
