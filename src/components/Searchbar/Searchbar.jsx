@@ -1,11 +1,32 @@
 import React, { Component } from "react";
 import { SearchbarHeader, SearchForm , SearchFormButton, SearchFormLabel, SearchFormInput } from './Searchbar.styled';
+import { toast } from 'react-toastify';
 
 class Searchbar extends Component {
+  state = {
+    query: '',
+  };
+
+  handleQueryChange = e => {
+    this.setState({ query: e.currentTarget.value.toLowerCase() });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    if (this.state.query.trim() === '') {
+      toast.error('Enter you want to find.');
+      return;
+    }
+
+    this.props.onSubmit(this.state.query);
+    this.setState({ query: '' });
+  };
+
   render () {
     return(
       <SearchbarHeader>
-        <SearchForm className="form">
+        <SearchForm className="form" onSubmit={this.handleSubmit}>
           <SearchFormButton type="submit" className="button">
             <SearchFormLabel className="button-label">Search</SearchFormLabel>
           </SearchFormButton>
@@ -13,6 +34,9 @@ class Searchbar extends Component {
           <SearchFormInput
             className="input"
             type="text"
+            name="query"
+            value={this.state.query}
+            onChange={this.handleQueryChange}
             autocomplete="off"
             autoFocus
             placeholder="Search images and photos"

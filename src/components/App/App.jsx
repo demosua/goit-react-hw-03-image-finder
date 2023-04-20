@@ -6,14 +6,16 @@ import Loader from '../Loader'
 import Modal from '../Modal'
 // import { nanoid } from 'nanoid';
 import { Container } from './App.styled';
-
+import { ToastContainer } from 'react-toastify';
 
 class App extends Component {
-
+  state = {
+    query: '',
+  };
   // const API_KEY_PIXABAY = "34930678-f4d511ae74090860518da87d0";
   // let page = 1;
   // let query = '';
-  handleSubmit =() => {
+  handleSubmit = query => {
 
   }
 
@@ -24,16 +26,10 @@ class App extends Component {
       <Container>
         <Searchbar onSubmit={this.handleSubmit}/>
         <ImageGallery />
-        <Button />
+        {/* <Button />
         <Loader />
-        <Modal />
-         {/* <Section>
-         <Title>Phonebook</Title>
-         <ContactForm onSubmit={this.addContact} contacts={this.state.contacts}/>  
-         </Section>
-         <h2>Contacts</h2>  
-           <Filter value={filter} onChange={this.changeFilter} />
-         <Contacts contacts={visibleContacts} onDeleteContact={this.deleteContact}/> */}
+        <Modal /> */}
+        <ToastContainer autoClose={3000} />
       </Container>
     )
   }
