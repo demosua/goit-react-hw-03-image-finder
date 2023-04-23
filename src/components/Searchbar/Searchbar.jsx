@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { SearchbarHeader, SearchForm , SearchFormButton, SearchFormLabel, SearchFormInput } from './Searchbar.styled';
-import { toast } from 'react-toastify';
 import { ImSearch } from 'react-icons/im';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Searchbar extends Component {
   state = {
     query: '',
   };
-
+  
   handleQueryChange = e => {
     this.setState({ query: e.currentTarget.value.toLowerCase() });
   };
@@ -19,7 +20,7 @@ class Searchbar extends Component {
       toast.error('Enter you want to find.');
       return;
     }
-
+    
     this.props.onSubmit(this.state.query);
     this.setState({ query: '' });
   };

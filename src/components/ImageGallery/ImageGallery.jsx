@@ -1,14 +1,14 @@
-// import ImageGalleryItem from "../ImageGalleryItem";
+import ImageGalleryItem from "../ImageGalleryItem";
 // import PropTypes from 'prop-types';
 import { Gallery } from './ImageGallery.styled'
 
-const ImageGallery = () => {
+const ImageGallery = ({ images }) => {
   
   return (
     <Gallery>
-      {/* {contacts.map(({ id, name, number }) => (
-         <GalleryItem key={id} />
-          ))} */}
+      { images.map(({ id, webformatURL, largeImageURL }) => (
+        <ImageGalleryItem key={id} id={id} webformatURL={webformatURL} largeImageURL={largeImageURL} />
+          )) }
     </Gallery>
   )
 };

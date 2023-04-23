@@ -1,13 +1,41 @@
+import React, { Component } from "react";
 import { Container, Overlay } from './Modal.styled'
+import { createPortal } from 'react-dom';
 
-const Modal = () => {
+export class Modal extends Component {
+  
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  handleKeyDown = e => {
+    if (e.code === 'Escape') {
+      this.props.onClose();
+    }
+  };
+  handleBackdropClick = e => {
+    if (e.target === e.currentTarget) {
+      this.props.onClose();
+    }
+  };
+
+  render() {
+  const {id, largeImageURL} = this.props
+
   return (
-    <Container>
-      <Overlay>
-      <img src="" alt="" />
-      </Overlay>
+    <Container >
+      {createPortal(
+        <Overlay onClick={this.handleBackdropClick}>
+        <img src={largeImageURL} alt={id} />
+        </Overlay>,
+      document.body)}
     </Container>
-  )
+    )
+  }
 };
   
 export default Modal;
