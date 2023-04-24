@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { SearchbarHeader, SearchForm , SearchFormButton, SearchFormLabel, SearchFormInput } from './Searchbar.styled';
 import { ImSearch } from 'react-icons/im';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class Searchbar extends Component {
@@ -46,6 +46,7 @@ class Searchbar extends Component {
             placeholder="Search images and photos"
           />
         </SearchForm>
+        <ToastContainer autoClose={1000} />
       </SearchbarHeader>
     )
   }

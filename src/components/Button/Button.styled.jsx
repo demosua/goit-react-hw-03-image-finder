@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 
 export const LoadMore = styled.button`
   padding: 8px 16px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 10px;
   border-radius: 2px;
   background-color: #3f51b5;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);

@@ -26,15 +26,14 @@ class App extends Component {
           .then(result => this.setState(prevState => {
             return { images: [...prevState.images, ...result], status: 'resolved' }
           }))
-          .catch(error => this.setState({ error, status: 'rejected' }))
-
+          .catch(error => {
+            this.setState({ error, status: 'rejected' })
+            toast.error(error.message)
+          })   
     }
     
     if (this.state.page > 1) { this.scrollSmoothly() };
   }
-
-
-  // { if (result.length === 0) {toast.warning(`There are no results with query: ${this.state.query}`)}
 
   scrollSmoothly = () => {
     const cardHeight = 320;
@@ -45,7 +44,7 @@ class App extends Component {
   };
 
   handleSubmit = query => {
-    this.setState({ query, page: 1 });
+    this.setState({ query, page: 1, images: [] });
   }
 
   handleLoadMore = () => {
@@ -53,22 +52,21 @@ class App extends Component {
   }
 
   render() {
-    const { images, error, status } = this.state;
+    const { images, status } = this.state;
 
     return (
-        <Container>
-          <Searchbar onSubmit={this.handleSubmit} />
-          {status === 'pending' && <Loader />}
-          {status === 'rejected' && toast.error(error.message)}
-          {status === 'resolved' &&
-            <div>
-            <ImageGallery images={images} />
-            <Button onClick={this.handleLoadMore} />
-            </div>
-          }
-          <ToastContainer autoClose={1000} />
-        </Container>
-        )
+      <Container>
+        <Searchbar onSubmit={this.handleSubmit} />
+        {status === 'pending' && <Loader />}
+        {status === 'rejected' && <ToastContainer autoClose={1000} />}
+        {status === 'resolved' &&
+          <>
+          <ImageGallery images={images} />
+          <Button onClick={this.handleLoadMore} />
+          </>
+        }
+      </Container>
+      )
   }
 }
 
