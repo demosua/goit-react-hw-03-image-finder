@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Overlay } from './Modal.styled'
 import { createPortal } from 'react-dom';
-
+import PropTypes from 'prop-types';
 export class Modal extends Component {
   
   componentDidMount() {
@@ -39,3 +39,9 @@ export class Modal extends Component {
 };
   
 export default Modal;
+
+Modal.propTypes = {
+  id: PropTypes.number.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+  };

@@ -17,11 +17,11 @@ class App extends Component {
     status: 'idle',
   };
 
-  async componentDidUpdate(_, prevState) {
+  componentDidUpdate(_, prevState) {
     if (prevState.query !== this.state.query || prevState.page !== this.state.page) {
       this.setState({ status: 'pending' });
 
-        await api
+        api
           .getImages(this.state.query, this.state.page)
           .then(result => this.setState(prevState => {
             return { images: [...prevState.images, ...result], status: 'resolved' }
@@ -29,18 +29,18 @@ class App extends Component {
           .catch(error => {
             this.setState({ error, status: 'rejected' })
             toast.error(error.message)
-          })   
+          })
+      
     }
-    
     if (this.state.page > 1) { this.scrollSmoothly() };
   }
 
   scrollSmoothly = () => {
     const cardHeight = 320;
-    window.scrollBy({
-      top: cardHeight * 2,
-      behavior: "smooth",
-    })
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: "smooth",
+      })
   };
 
   handleSubmit = query => {

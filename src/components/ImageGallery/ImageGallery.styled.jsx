@@ -8,4 +8,8 @@ export const Gallery = styled.ul`
   padding: 0;
   list-style: none;
   margin: 10px auto;
+
+  @media screen and (min-width: 1400px) {
+    max-width: 1400px;
+  }
 `;
