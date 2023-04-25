@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { GalleryItem, Image } from './ImageGalleryItem.styled'
 import Modal from '../Modal';
 import PropTypes from 'prop-types';
 
 
-export class ImageGalleryItem extends Component {
+export class ImageGalleryItem extends PureComponent {
   state = {
     isModalOpen: false,
   };

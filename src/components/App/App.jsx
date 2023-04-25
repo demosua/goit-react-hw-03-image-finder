@@ -6,7 +6,7 @@ import Loader from '../Loader'
 import { Container } from './App.styled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import api from '../api/pixabay';
+import api from '../../api/pixabay';
 
 class App extends Component {
   state = {
