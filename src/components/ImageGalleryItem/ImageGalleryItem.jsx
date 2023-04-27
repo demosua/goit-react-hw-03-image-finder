@@ -9,6 +9,8 @@ export class ImageGalleryItem extends PureComponent {
     isModalOpen: false,
   };
 
+  
+
   openModal = () => {this.setState({ isModalOpen: true })};
   closeModal = () => {this.setState({ isModalOpen: false })};
 

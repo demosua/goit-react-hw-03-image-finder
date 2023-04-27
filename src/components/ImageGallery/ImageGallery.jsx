@@ -1,9 +1,10 @@
+
 import ImageGalleryItem from "../ImageGalleryItem";
 import PropTypes from 'prop-types';
 import { Gallery } from './ImageGallery.styled'
 
 const ImageGallery = ({ images }) => {
-  
+
   return (
     <Gallery>
       { images.map(({ id, webformatURL, largeImageURL }) => (
