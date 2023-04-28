@@ -60,7 +60,7 @@ class App extends Component {
         {status === 'pending' && <Loader />}
         {status === 'rejected' && <ToastContainer autoClose={1000} />}
         <ImageGallery images={images} />
-        {status === 'resolved' && <Button onClick={this.handleLoadMore} />}
+        {images.length > 0 && <Button onClick={this.handleLoadMore} />}
       </Container>
       )
   }
