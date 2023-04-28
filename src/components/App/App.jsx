@@ -30,7 +30,7 @@ class App extends Component {
             this.setState({ error, status: 'rejected' })
             toast.error(error.message)
           })
-      
+
     }
     if (this.state.page > 1) { this.scrollSmoothly() };
   }
@@ -59,12 +59,8 @@ class App extends Component {
         <Searchbar onSubmit={this.handleSubmit} />
         {status === 'pending' && <Loader />}
         {status === 'rejected' && <ToastContainer autoClose={1000} />}
-        {status === 'resolved' &&
-          <>
-          <ImageGallery images={images} />
-          <Button onClick={this.handleLoadMore} />
-          </>
-        }
+        <ImageGallery images={images} />
+        {status === 'resolved' && <Button onClick={this.handleLoadMore} />}
       </Container>
       )
   }

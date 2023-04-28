@@ -24,7 +24,7 @@ export class ImageGalleryItem extends PureComponent {
     return (
       <>
         <GalleryItem onClick={this.openModal}>
-          <Image src={webformatURL} alt={id} />
+          <Image src={webformatURL} alt={id.toString()} />
         </GalleryItem>
         {isModalOpen && (<Modal id={id} largeImageURL={largeImageURL} onClose={this.handleModal}/>) }
       </>

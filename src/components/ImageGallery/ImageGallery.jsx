@@ -8,7 +8,7 @@ const ImageGallery = ({ images }) => {
   return (
     <Gallery>
       { images.map(({ id, webformatURL, largeImageURL }) => (
-        <ImageGalleryItem key={id} id={id} webformatURL={webformatURL} largeImageURL={largeImageURL} />
+        <ImageGalleryItem key={id.toString()} id={id} webformatURL={webformatURL} largeImageURL={largeImageURL} />
           )) }
     </Gallery>
   )
