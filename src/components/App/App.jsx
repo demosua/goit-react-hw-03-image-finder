@@ -59,7 +59,7 @@ class App extends Component {
         <Searchbar onSubmit={this.handleSubmit} />
         {status === 'pending' && <Loader />}
         {status === 'rejected' && <ToastContainer autoClose={1000} />}
-        <ImageGallery images={images} />
+        {images.length > 0 && <ImageGallery images={images} />}
         {images.length > 0 && <Button onClick={this.handleLoadMore} />}
       </Container>
       )
